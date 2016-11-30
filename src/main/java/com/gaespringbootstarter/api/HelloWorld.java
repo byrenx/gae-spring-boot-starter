@@ -1,5 +1,6 @@
 package com.gaespringbootstarter.api;
 
+import com.gaespringbootstarter.dto.Hello;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,4 +18,15 @@ public class HelloWorld {
     public String helloWorld() {
         return "Hello World";
     }
+
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    @ResponseBody
+    public Hello helloWorldJSON() {
+        Hello h = new Hello();
+
+        h.setMessage("Test JSON");
+        return h;
+    }
+
+
 }
